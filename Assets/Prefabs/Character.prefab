@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a82f3b9de779744b2907f5ce0a280d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAttack: {fileID: 148457015449777273}
+  _playerAttack: {fileID: 148457015449777273}
 --- !u!114 &148457015449777273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawnPosition: {fileID: 3926786963072264220}
   _bulletSystem: {fileID: 0}
-  _bulletConfig: {fileID: 11400000, guid: 7138ae5d32d814e0ca50c616c65ea105, type: 2}
+  _bulletConfig: {fileID: 11400000, guid: 8286f4ac18e60364b81550db7a0baa02, type: 2}
   FireRequared: 0
 --- !u!114 &4169627111864844547
 MonoBehaviour:
