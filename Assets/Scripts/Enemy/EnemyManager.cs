@@ -11,6 +11,9 @@ namespace ShootEmUp
 
         [SerializeField]
         private BulletSystem _bulletSystem;
+
+        [SerializeField]
+        private BulletConfig _bulletConfig;
         
         private readonly HashSet<GameObject> m_activeEnemies = new();
 
@@ -24,7 +27,7 @@ namespace ShootEmUp
                 {
                     if (this.m_activeEnemies.Add(enemy))
                     {
-                        enemy.GetComponent<HitPointsComponent>().hpEmpty += this.OnDestroyed;
+                        enemy.GetComponent<EnemyHealth>().HpEmpty += this.OnDestroyed;
                         enemy.GetComponent<EnemyAttackAgent>().OnFire += this.OnFire;
                     }    
                 }
@@ -35,7 +38,7 @@ namespace ShootEmUp
         {
             if (m_activeEnemies.Remove(enemy))
             {
-                enemy.GetComponent<HitPointsComponent>().hpEmpty -= this.OnDestroyed;
+                enemy.GetComponent<EnemyHealth>().HpEmpty -= this.OnDestroyed;
                 enemy.GetComponent<EnemyAttackAgent>().OnFire -= this.OnFire;
 
                 _enemyPool.UnspawnEnemy(enemy);
@@ -47,12 +50,13 @@ namespace ShootEmUp
             _bulletSystem.FlyBulletByArgs(new BulletSystem.Args
             {
                 isPlayer = false,
-                physicsLayer = (int) PhysicsLayer.ENEMY,
-                color = Color.red,
-                damage = 1,
+                physicsLayer = (int)this._bulletConfig.PhysicsLayer,
+                color = this._bulletConfig.Color,
+                damage = this._bulletConfig.Damage,
                 position = position,
-                velocity = direction * 2.0f
+                velocity = direction * this._bulletConfig.Speed
             });
+
         }
     }
 }
