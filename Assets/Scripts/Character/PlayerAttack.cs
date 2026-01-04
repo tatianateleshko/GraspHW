@@ -28,11 +28,11 @@ namespace ShootEmUp
             _bulletSystem.FlyBulletByArgs(new BulletSystem.Args
             {
                 isPlayer = true,
-                physicsLayer = (int)this._bulletConfig.physicsLayer,
-                color = this._bulletConfig.color,
-                damage = this._bulletConfig.damage,
+                physicsLayer = (int)this._bulletConfig.PhysicsLayer,
+                color = this._bulletConfig.Color,
+                damage = this._bulletConfig.Damage,
                 position = _bulletSpawnPosition.position,
-                velocity = _bulletSpawnPosition.rotation * Vector3.up * this._bulletConfig.speed
+                velocity = _bulletSpawnPosition.rotation * Vector3.up * this._bulletConfig.Speed
             });
         }
     }
