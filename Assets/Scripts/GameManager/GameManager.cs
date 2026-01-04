@@ -4,7 +4,18 @@ namespace ShootEmUp
 {
     public sealed class GameManager : MonoBehaviour
     {
-        public void FinishGame()
+        [SerializeField] private PlayerHealth _playerHealth;
+        private void OnEnable()
+        {
+           _playerHealth.HpEmpty += FinishGame;
+        }
+
+        private void OnDisable()
+        {
+            _playerHealth.HpEmpty += FinishGame;
+        }
+
+        private void FinishGame(GameObject _)
         {
             Debug.Log("Game over!");
             Time.timeScale = 0;
