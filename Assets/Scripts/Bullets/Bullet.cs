@@ -7,14 +7,14 @@ namespace ShootEmUp
     {
         public event Action<Bullet, Collision2D> OnCollisionEntered;
 
-        [NonSerialized] public bool isPlayer;
-        [NonSerialized] public int damage;
+        [NonSerialized] public bool IsPlayer;
+        [NonSerialized] public int Damage;
 
         [SerializeField]
-        private new Rigidbody2D rigidbody2D;
+        private Rigidbody2D _rigidbody2D;
 
         [SerializeField]
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer _spriteRenderer;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -23,7 +23,7 @@ namespace ShootEmUp
 
         public void SetVelocity(Vector2 velocity)
         {
-            this.rigidbody2D.velocity = velocity;
+            this._rigidbody2D.velocity = velocity;
         }
 
         public void SetPhysicsLayer(int physicsLayer)
@@ -38,7 +38,7 @@ namespace ShootEmUp
 
         public void SetColor(Color color)
         {
-            this.spriteRenderer.color = color;
+            this._spriteRenderer.color = color;
         }
     }
 }
