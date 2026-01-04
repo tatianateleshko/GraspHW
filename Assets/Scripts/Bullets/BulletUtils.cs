@@ -14,9 +14,9 @@ namespace ShootEmUp
             if (bullet.isPlayer == team.IsPlayer)
             {
                 return;
-            }
+            } 
 
-            if (other.TryGetComponent(out HitPointsComponent hitPoints))
+            if (other.TryGetComponent(out IHealth hitPoints))
             {
                 hitPoints.TakeDamage(bullet.damage);
             }
